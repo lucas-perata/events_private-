@@ -11,7 +11,75 @@
   </head>
 
   <body>
+
   
+    <p class="notice"><%= flash[:notice] %></p>
+       <p class="alert"><%= flash[:alert] %></p>
+       
+     
+      
+
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Navbar brand -->
+    <a >
+      <%= link_to "Events", root_path, class:"navbar-brand" %>
+    </a>
+
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarButtonsExample"
+      aria-controls="navbarButtonsExample"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarButtonsExample">
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Dashboard</a>
+        </li>
+      </ul>
+      <!-- Left links -->
+    <% if user_signed_in? %>
+    <div class="d-flex align-items-center">
+        <div> <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class:"btn"%>
+          
+        </div>
+    <% else %>
+      <div class="d-flex align-items-center">
+        <div> <%= link_to "Log in", new_user_session_path, class:"btn"%>
+          
+        </div>
+
+  <% end %>
+        <button type="button" class="btn btn-primary me-3">
+          Sign up for free
+        </button>
+        <a
+          class="btn btn-dark px-3"
+          href="https://github.com/mdbootstrap/mdb-ui-kit"
+          role="button"
+          ><i class="fab fa-github"></i
+        ></a>
+      </div>
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+
     <%= yield %>
   </body>
+    
 </html>
