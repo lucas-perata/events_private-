@@ -1,0 +1,23 @@
+<%= @user.email %> <br>
+
+<% if Event.any? %>
+<% @events.each do |e|%>
+<% if e.user_id == current_user.id %>
+<%= e.name %>
+<% end %>
+<% end %>
+
+<% else %>
+
+<%= "no events" %>
+
+<% end %>
+<br>
+<%= "Invitaciones" %>
+<br>
+
+<% @attendances.each do |at|%>
+<% if at.user_id == current_user.id %>
+<%= at.event.name %>
+<% end %>
+<% end %>
