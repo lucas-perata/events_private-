@@ -46,8 +46,11 @@
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">Dashboard</a>
+        <% if user_signed_in? %>
+          <a href="#"><%= link_to "New event", new_event_path, class:"nav-link" %>
+</a>
         </li>
+        <% end %>
       </ul>
       <!-- Left links -->
     <% if user_signed_in? %>
@@ -66,10 +69,11 @@
           Sign up for free
         </button>
         <a
-          class="btn btn-dark px-3"
-          href="https://github.com/mdbootstrap/mdb-ui-kit"
+          class="btn"
+          href="https://github.com/lucas-perata/events_private-"
           role="button"
-          ><i class="fab fa-github"></i
+          target="_blank" 
+          ><%= render(Primer::OcticonComponent.new(:"mark-github")) %></i
         ></a>
       </div>
     </div>

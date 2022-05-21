@@ -57,6 +57,8 @@ gem 'turbo-rails'
 gem 'jquery-rails', '~> 4.4'
 gem "sassc-rails"
 gem 'bootstrap', '~> 4.3.1'
+gem 'octicons'
+gem "primer_view_components"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
