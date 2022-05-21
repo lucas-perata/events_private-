@@ -47,6 +47,18 @@ class EventsController < ApplicationController
     end
   end
 
+  def unatted
+    
+    @event = Event.find(params[:id])
+    attendees_events = Attendance.find_by(user_id: current_user.id, event_id: @event.id)
+    attendees_events.destroy
+    
+    respond_to do |format|
+      format.html { redirect_to @event, notice: "Invite." }
+      format.json { head :no_content }
+    end
+  end
+
   # PATCH/PUT /events/1 or /events/1.json
   def update
     respond_to do |format|
