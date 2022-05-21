@@ -27,6 +27,19 @@
   </div>
 
   <div>
+    <%# <% users_array = User.all.map {|user| [user.email]} %> 
+    
+    <%# <select name="users">
+    <% User.all.map do |user| if user.id != current_user.id  %>
+      <%# <option value="user"><%= user.email</option> %>
+      <%# <% end %>
+       <%# <% end %> 
+    <%# </select> %> 
+     
+    
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

@@ -1,14 +1,26 @@
 
 
-
 <%= @event.name %>
+<br>
+<% user = Event.find(@event.id).user_id %>
+<%= User.find(user).email %>
+<br>
 <%= @event.description %>
-<%= @event.date %>
+<%= @event.date %> <br>
+<%= @event.attendances.count %> <br>
+
+
+
+<% @event.attendances.each do |attend| %>
+<% attendandts = attend.user_id %>
+<%= User.find(attendandts).email %> <br>
+<% end %>
 
 <div>
   <% if user_signed_in? %>
   <%= link_to "Edit this event", edit_event_path(@event) %> 
 <%= button_to "Destroy this event", @event, method: :delete %>
+<%= link_to "A",  attend_event_path %>
   <% else %>
   <%= link_to "Back to events", events_path %>
   <% end %>

@@ -9,6 +9,7 @@ class EventsController < ApplicationController
   # GET /events/1 or /events/1.json
   def show
     @events = Event.all
+    @attendances = Attendance.all
   end
 
   # GET /events/new
@@ -32,6 +33,17 @@ class EventsController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def attend
+    @event = Event.find(params[:id])
+
+    attendances = Attendance.new(user_id: current_user.id, event_id: @event.id)
+    if attendances.save
+      redirect_to @event, notice: "You are now attending this event!"
+    else
+      redirect_to @event, alert: "You are already attending this event!"
     end
   end
 
