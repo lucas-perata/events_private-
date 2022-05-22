@@ -10,12 +10,19 @@ class EventsController < ApplicationController
   def show
     @events = Event.all
     @attendances = Attendance.all
+    @event = Event.find(params[:id])
+    attendees_events = Attendance.find_by(user_id: current_user.id, event_id: @event.id)
   end
 
   # GET /events/new
   def new
     @event = current_user.events.build
   end
+
+  def self.attend? 
+    @user = current_user.id 
+    
+end 
 
   # GET /events/1/edit
   def edit

@@ -1,5 +1,5 @@
 
-
+<br>
 <%= @event.name %>
 <br>
 <% user = Event.find(@event.id).user_id %>
@@ -20,8 +20,16 @@
   <% if user_signed_in? %>
   <%= link_to "Edit this event", edit_event_path(@event) %> 
 <%= button_to "Destroy this event", @event, method: :delete %>
-<%= link_to "Attend",  attend_event_path %>
+
+      <% if Attendance.find_by(user_id: current_user.id, event_id: @event.id).nil? %>
+           <%= link_to "Attend",  attend_event_path %>
+    
+      <% else %>
 <%= link_to "Un",  unatted_event_path, method: :delete %>
+     
+     <% end %>
+
+
   <% else %>
   <%= link_to "Back to events", events_path %>
   <% end %>

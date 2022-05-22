@@ -5,4 +5,5 @@ class UsersController < ApplicationController
        @events = Event.all
        @attendances = Attendance.all
     end 
+    
 end

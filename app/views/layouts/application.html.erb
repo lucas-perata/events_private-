@@ -11,12 +11,13 @@
   </head>
 
   <body>
-
+<div>
+    <% if flash  %>
   
-    <p class="notice"><%= flash[:notice] %></p>
-       <p class="alert"><%= flash[:alert] %></p>
-       
-     
+    <%= flash[:notice] %>
+       <%= flash[:alert] %>
+       <% end %>
+    </div>
       
 
     <!-- Navbar -->
