@@ -15,8 +15,8 @@
 
           <ul class="nav nav-pills nav-stacked">
               <li class="active"><a href="#"> <i class="fa fa-user"></i> Profile</a></li>
-              <li><a href="#"> <i class="fa fa-calendar"></i> Recent Activity <span class="label label-warning pull-right r-activity">9</span></a></li>
-              <li><a href="#"> <i class="fa fa-edit"></i> Edit profile</a>
+              <li><a href="#"> <i class="fa fa-calendar"></i>     <%= link_to "attendance", users_attendance_path, data: { turbo_frame: "events" } %> <span class="label label-warning pull-right r-activity">9</span></a></li>
+              <li><a href="#"> <i class="fa fa-edit"></i> <%= link_to "eventos", users_events_path, data: { turbo_frame: "events" }%></a>
                 
               </li>
           </ul>
@@ -64,11 +64,11 @@
 
 
     
-    <%= link_to "eventos", users_events_path, data: { turbo_frame: "events" }%>
+    
    
 
    
-    <%= link_to "attendance", users_attendance_path, data: { turbo_frame: "events" } %>
+
     
     
     <%= turbo_frame_tag "events" do %>
