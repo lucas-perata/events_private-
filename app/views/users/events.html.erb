@@ -14,16 +14,23 @@
                           <div class="bio">
                               <h4 class="red"><%= e.name %></h4>
                               <p><%= render e %></p>
-                              <p><%= link_to "Show this event...", e, data:{turbo:false}%></p>
+                              
                           </div>
-                      </div>
-                  </div>
-              </div>
-                 <% end %>
-             <% end %>
-                <% end %>
-           
-              </div>
+                          <p><%= link_to "More info...", e, data: { turbo: "false" } %></p>
+                                 
+                                 </div class="show">
+                            <%= turbo_frame_tag "show" do %>
+                                   
+                        
+                                </div>
+                                <% end %>
+                  
+              </div>  
+                                <% end %>
+                                <% end %>
+                                <% end %>
+        </div>
+              
           </div>
    
     <% end %>

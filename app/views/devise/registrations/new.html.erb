@@ -1,6 +1,9 @@
+  <%= turbo_frame_tag "form" do %>
+    <%= turbo_stream.append  target="form" do %>
+
 <h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {"turbo-frame" => "_top"}) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -23,3 +26,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+<% end %>
+<% end %>

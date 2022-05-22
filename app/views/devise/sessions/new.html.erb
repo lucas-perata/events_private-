@@ -1,6 +1,8 @@
+<%= turbo_frame_tag "form" do %>
 <h2>Log in</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="form">
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {"turbo-frame" => "_top"}) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
                 required: false,
@@ -16,5 +18,7 @@
     <%= f.button :submit, "Log in" %>
   </div>
 <% end %>
-
+<%= link_to "Register", new_user_registration_path, data: { turbo_frame: "form" }, class:"nav-link"%>
+</div>
 <%= render "devise/shared/links" %>
+<% end %>
