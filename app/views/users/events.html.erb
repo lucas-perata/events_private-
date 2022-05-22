@@ -1,0 +1,29 @@
+    <%= turbo_frame_tag "events" do %>
+    <%= turbo_stream.append  target="events" do %>
+  <div class="panel-body">
+            <h2>Your events:</h2>
+          <div class="row">
+          <% if Event.any? %>
+            <% @events.each do |e|%>
+            <% if e.user_id == current_user.id %>
+              <div class="col-md-6">
+                  <div class="panel shadow p-3 mb-5 bg-white rounded">
+                      <div class="panel-body">
+                          
+                          <div class="bio-desk">
+                              <h4 class="red"><%= e.name %></h4>
+                              <p><%= e.description %></p>
+                              <p><%= e.date %></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+                 <% end %>
+             <% end %>
+                <% end %>
+           
+              </div>
+          </div>
+      </div>
+    <% end %>
+      <% end %>

@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /events or /events.json
   def index
@@ -18,11 +19,7 @@ class EventsController < ApplicationController
   def new
     @event = current_user.events.build
   end
-
-  def self.attend? 
-    @user = current_user.id 
-    
-end 
+  
 
   # GET /events/1/edit
   def edit

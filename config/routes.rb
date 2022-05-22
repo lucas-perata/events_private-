@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get "users/show"
+  get "users/events"
+  get "users/attendance"
   devise_for :users, :controller => { :sessions => 'sessions' }
  
   resources :events do 
